@@ -1,0 +1,28 @@
+TEMPORARY DATABASE SETUP
+
+1. Extract ci4_pagination_DREW2 into:
+   C:\xampp\htdocs\CedrickValera_IT0049\ci4_pagination_DREW2
+
+2. Start Apache and MySQL in XAMPP.
+
+3. Open http://localhost/phpmyadmin/
+
+4. Select the phpMyAdmin server home, open the Import tab, and import:
+   create_temporary_database.sql
+
+5. Open the project at:
+   http://localhost/CedrickValera_IT0049/ci4_pagination_DREW2/
+
+6. Login (temporary credentials are accepted):
+   http://localhost/CedrickValera_IT0049/ci4_pagination_DREW2/login
+
+7. Accounts dashboard:
+   http://localhost/CedrickValera_IT0049/ci4_pagination_DREW2/accounts
+
+DELETE THE TEMPORARY DATABASE
+
+Import delete_temporary_database.sql in phpMyAdmin, or run:
+
+DROP DATABASE IF EXISTS `electric_company_drew2_temp`;
+
+This does not delete your existing electriccompany database.
