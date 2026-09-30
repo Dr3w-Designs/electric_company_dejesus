@@ -77,6 +77,15 @@
                 <p class="text-muted">Customer Account Management System</p>
             </div>
 
+            <div class="d-flex justify-content-end mb-4">
+                <form method="POST" action="<?= base_url('logout') ?>">
+                    <?= csrf_field() ?>
+                    <button type="submit" class="btn btn-outline-danger">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </button>
+                </form>
+            </div>
+
             <!-- Statistics Cards -->
             <div class="row mb-4">
                 <div class="col-md-3">

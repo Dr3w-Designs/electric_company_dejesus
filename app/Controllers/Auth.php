@@ -52,7 +52,7 @@ class Auth extends BaseController
     {
         session()->destroy();
 
-        return redirect()->to(base_url('login'))
+        return redirect()->to(base_url('home'))
             ->with('success', 'You have been logged out.');
     }
 }
