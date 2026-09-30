@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
+
 class Auth extends BaseController
 {
     public function index()
@@ -13,10 +15,34 @@ class Auth extends BaseController
 
     public function login()
     {
-        // Temporary login: credentials are not checked yet.
+        $rules = [
+            'username' => 'required|valid_email|max_length[255]',
+            'password' => 'required|max_length[255]',
+        ];
+
+        if (! $this->validate($rules)) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Enter a valid email address and password.');
+        }
+
+        $email    = trim((string) $this->request->getPost('username'));
+        $password = (string) $this->request->getPost('password');
+        $user     = (new User())->findByEmail($email);
+
+        if ($user === null || ! (bool) $user['is_active'] || ! password_verify($password, $user['password'])) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Invalid email or password.');
+        }
+
+        session()->regenerate(true);
         session()->set([
             'logged_in'    => true,
-            'display_name' => 'Administrator',
+            'isLogged'     => true,
+            'user_id'      => $user['id'],
+            'username'     => $user['email'],
+            'display_name' => trim($user['first_name'] . ' ' . $user['last_name']),
         ]);
 
         return redirect()->to(base_url('accounts'));
@@ -26,6 +52,7 @@ class Auth extends BaseController
     {
         session()->destroy();
 
-        return redirect()->to(base_url());
+        return redirect()->to(base_url('login'))
+            ->with('success', 'You have been logged out.');
     }
 }

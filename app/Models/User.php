@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class User extends Model
 {
-    protected $table            = 'users';
+    protected $table            = 'user_accounts';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -39,7 +39,7 @@ class User extends Model
     protected $validationRules = [
         'first_name' => 'required|min_length[2]|max_length[100]',
         'last_name'  => 'required|min_length[2]|max_length[100]',
-        'email'      => 'required|valid_email|is_unique[users.email,id,{id}]',
+        'email'      => 'required|valid_email|is_unique[user_accounts.email,id,{id}]',
         'phone'      => 'permit_empty|min_length[10]|max_length[20]',
         'password'   => 'required|min_length[8]',
         'user_type'  => 'permit_empty|in_list[customer,admin]',

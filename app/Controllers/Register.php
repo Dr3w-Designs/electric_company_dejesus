@@ -33,7 +33,7 @@ class Register extends BaseController
         $validation->setRules([
             'first_name'       => 'required|min_length[2]|max_length[100]',
             'last_name'        => 'required|min_length[2]|max_length[100]',
-            'email'            => 'required|valid_email|is_unique[users.email]',
+            'email'            => 'required|valid_email|is_unique[user_accounts.email]',
             'phone'            => 'required|min_length[10]|max_length[20]',
             'address'          => 'required|min_length[5]|max_length[255]',
             'city'             => 'required|min_length[2]|max_length[100]',

@@ -3,6 +3,18 @@
 
 <section class="section-padding bg-light-custom">
     <div class="container">
+        <?php if ($error = session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger" role="alert">
+                <?= esc($error) ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($success = session()->getFlashdata('success')): ?>
+            <div class="alert alert-success" role="alert">
+                <?= esc($success) ?>
+            </div>
+        <?php endif; ?>
+
         <div class="row">
             <div class="col-md-6 col-lg-5 mx-auto">
                 <div class="card shadow-lg border-0">
@@ -13,7 +25,7 @@
                                 Dashboard Login
                             </h1>
                             <p class="text-muted">
-                                Enter any username and password.
+                                Sign in with your registered email and password.
                             </p>
                         </div>
 
@@ -22,7 +34,7 @@
 
                             <div class="mb-3">
                                 <label for="username" class="form-label">
-                                    Username
+                                    Email address
                                 </label>
 
                                 <input
@@ -30,7 +42,7 @@
                                     class="form-control form-control-lg"
                                     id="username"
                                     name="username"
-                                    placeholder="Enter any username"
+                                    placeholder="Enter your email address"
                                 >
                             </div>
 

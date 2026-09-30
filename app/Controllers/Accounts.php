@@ -15,6 +15,11 @@ class Accounts extends BaseController
 
     public function index()
     {
+        if (session()->get('logged_in') !== true) {
+            return redirect()->to(base_url('login'))
+                ->with('error', 'Please log in to access customer accounts.');
+        }
+
         $keyword = $this->request->getGet('search');
         $status  = $this->request->getGet('status');
         $type    = $this->request->getGet('type');
@@ -48,6 +53,11 @@ class Accounts extends BaseController
 
     public function viewAccount($id)
     {
+        if (session()->get('logged_in') !== true) {
+            return redirect()->to(base_url('login'))
+                ->with('error', 'Please log in to access customer accounts.');
+        }
+
         $account = $this->customerModel->find($id);
 
         if (!$account) {
