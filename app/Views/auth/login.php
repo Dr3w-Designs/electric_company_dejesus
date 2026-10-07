@@ -25,7 +25,7 @@
                                 Dashboard Login
                             </h1>
                             <p class="text-muted">
-                                Sign in with your registered email and password.
+                                Sign in with your username or registered email and password.
                             </p>
                         </div>
 
@@ -34,7 +34,7 @@
 
                             <div class="mb-3">
                                 <label for="username" class="form-label">
-                                    Email address
+                                    Username or email address
                                 </label>
 
                                 <input
@@ -42,7 +42,10 @@
                                     class="form-control form-control-lg"
                                     id="username"
                                     name="username"
-                                    placeholder="Enter your email address"
+                                    value="<?= esc(old('username')) ?>"
+                                    placeholder="Enter your username or email"
+                                    autocomplete="username"
+                                    required
                                 >
                             </div>
 
@@ -56,7 +59,9 @@
                                     class="form-control form-control-lg"
                                     id="password"
                                     name="password"
-                                    placeholder="Enter any password"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    required
                                 >
                             </div>
 

@@ -14,7 +14,7 @@ class User extends Model
     protected $protectFields    = true;
 
     protected $allowedFields = [
-        'first_name', 'last_name', 'email', 'phone', 'address',
+        'first_name', 'last_name', 'username', 'email', 'phone', 'address',
         'city', 'state', 'zip_code', 'password', 'user_type',
         'is_active', 'email_verified',
     ];
@@ -39,6 +39,7 @@ class User extends Model
     protected $validationRules = [
         'first_name' => 'required|min_length[2]|max_length[100]',
         'last_name'  => 'required|min_length[2]|max_length[100]',
+        'username'   => 'required|alpha_dash|min_length[3]|max_length[50]|is_unique[user_accounts.username,id,{id}]',
         'email'      => 'required|valid_email|is_unique[user_accounts.email,id,{id}]',
         'phone'      => 'permit_empty|min_length[10]|max_length[20]',
         'password'   => 'required|min_length[8]',
@@ -46,6 +47,10 @@ class User extends Model
     ];
 
     protected $validationMessages = [
+        'username' => [
+            'alpha_dash' => 'Username may contain only letters, numbers, underscores, and dashes.',
+            'is_unique'  => 'This username is already in use.',
+        ],
         'email' => [
             'is_unique' => 'This email address is already registered.',
         ],
@@ -85,5 +90,16 @@ class User extends Model
     public function findByEmail($email)
     {
         return $this->where('email', $email)->first();
+    }
+
+    public function findByUsernameOrEmail(string $identifier): ?array
+    {
+        $identifier = strtolower(trim($identifier));
+
+        return $this->groupStart()
+            ->where('username', $identifier)
+            ->orWhere('email', $identifier)
+            ->groupEnd()
+            ->first();
     }
 }

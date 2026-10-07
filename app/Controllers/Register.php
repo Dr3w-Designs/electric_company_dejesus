@@ -33,6 +33,7 @@ class Register extends BaseController
         $validation->setRules([
             'first_name'       => 'required|min_length[2]|max_length[100]',
             'last_name'        => 'required|min_length[2]|max_length[100]',
+            'username'         => 'required|alpha_dash|min_length[3]|max_length[50]|is_unique[user_accounts.username]',
             'email'            => 'required|valid_email|is_unique[user_accounts.email]',
             'phone'            => 'required|min_length[10]|max_length[20]',
             'address'          => 'required|min_length[5]|max_length[255]',
@@ -52,7 +53,8 @@ class Register extends BaseController
         $userData = [
             'first_name'     => $this->request->getPost('first_name'),
             'last_name'      => $this->request->getPost('last_name'),
-            'email'          => $this->request->getPost('email'),
+            'username'       => strtolower(trim((string) $this->request->getPost('username'))),
+            'email'          => strtolower(trim((string) $this->request->getPost('email'))),
             'phone'          => $this->request->getPost('phone'),
             'address'        => $this->request->getPost('address'),
             'city'           => $this->request->getPost('city'),

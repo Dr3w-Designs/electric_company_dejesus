@@ -12,6 +12,7 @@ class CreateUsers extends Migration
             'id' => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
             'first_name' => ['type' => 'VARCHAR', 'constraint' => 100],
             'last_name' => ['type' => 'VARCHAR', 'constraint' => 100],
+            'username' => ['type' => 'VARCHAR', 'constraint' => 50],
             'email' => ['type' => 'VARCHAR', 'constraint' => 255, 'unique' => true],
             'phone' => ['type' => 'VARCHAR', 'constraint' => 20, 'null' => true],
             'address' => ['type' => 'TEXT', 'null' => true],
@@ -26,7 +27,8 @@ class CreateUsers extends Migration
             'updated_at' => ['type' => 'DATETIME', 'null' => true],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('user_accounts');
+        $this->forge->addUniqueKey('username', 'user_accounts_username_unique');
+        $this->forge->createTable('user_accounts', true);
     }
 
     public function down()

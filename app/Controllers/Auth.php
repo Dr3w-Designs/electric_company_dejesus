@@ -16,24 +16,24 @@ class Auth extends BaseController
     public function login()
     {
         $rules = [
-            'username' => 'required|valid_email|max_length[255]',
+            'username' => 'required|max_length[255]',
             'password' => 'required|max_length[255]',
         ];
 
         if (! $this->validate($rules)) {
             return redirect()->back()
                 ->withInput()
-                ->with('error', 'Enter a valid email address and password.');
+                ->with('error', 'Enter your username or email address and password.');
         }
 
-        $email    = trim((string) $this->request->getPost('username'));
-        $password = (string) $this->request->getPost('password');
-        $user     = (new User())->findByEmail($email);
+        $identifier = trim((string) $this->request->getPost('username'));
+        $password   = (string) $this->request->getPost('password');
+        $user       = (new User())->findByUsernameOrEmail($identifier);
 
         if ($user === null || ! (bool) $user['is_active'] || ! password_verify($password, $user['password'])) {
             return redirect()->back()
                 ->withInput()
-                ->with('error', 'Invalid email or password.');
+                ->with('error', 'Invalid username, email, or password.');
         }
 
         session()->regenerate(true);
@@ -41,7 +41,7 @@ class Auth extends BaseController
             'logged_in'    => true,
             'isLogged'     => true,
             'user_id'      => $user['id'],
-            'username'     => $user['email'],
+            'username'     => $user['username'],
             'display_name' => trim($user['first_name'] . ' ' . $user['last_name']),
         ]);
 

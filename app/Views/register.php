@@ -120,6 +120,18 @@ required>
                                             <div class="invalid-feedback"><?= $validation['last_name'] ?></div> 
                                         <?php endif; ?> 
                                     </div> 
+                                    <div class="col-md-6">
+                                        <label for="username" class="form-label fw-semibold">Username *</label>
+                                        <input type="text" class="form-control form-control-lg <?=
+isset($validation['username']) ? 'is-invalid' : '' ?>"
+                                               id="username" name="username" value="<?= old('username') ?>"
+                                               minlength="3" maxlength="50" pattern="[A-Za-z0-9_-]+"
+                                               autocomplete="username" required>
+                                        <div class="form-text">Use letters, numbers, underscores, or dashes.</div>
+                                        <?php if (isset($validation['username'])): ?>
+                                            <div class="invalid-feedback"><?= $validation['username'] ?></div>
+                                        <?php endif; ?>
+                                    </div>
                                     <div class="col-md-6"> 
                                         <label for="email" class="form-label fw-semibold">Email Address *</label> 
                                         <input type="email" class="form-control form-control-lg <?= 
