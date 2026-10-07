@@ -486,3 +486,68 @@ WHERE `username` = :username:
 13 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-10-07 14:25:49 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for sql306.infinityfree.com failed: No such host is known.  in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'C:\\xampp\\htdocs...', 201)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('sql306.infinity...', 'if0_43109131', Object(SensitiveParameterValue), 'if0_43109131_el...', 3306, '', 0)
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#4 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(1525): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#5 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(1545): CodeIgniter\Database\BaseConnection->listTables()
+#6 C:\xampp\htdocs\electric_company_dejesus\system\Database\MigrationRunner.php(766): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#7 C:\xampp\htdocs\electric_company_dejesus\system\Database\MigrationRunner.php(644): CodeIgniter\Database\MigrationRunner->ensureTable()
+#8 C:\xampp\htdocs\electric_company_dejesus\system\Commands\Database\MigrateStatus.php(115): CodeIgniter\Database\MigrationRunner->getHistory('')
+#9 C:\xampp\htdocs\electric_company_dejesus\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\MigrateStatus->run(Array)
+#10 C:\xampp\htdocs\electric_company_dejesus\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate:status', Array)
+#11 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#12 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#13 C:\xampp\htdocs\electric_company_dejesus\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#14 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for sql306.infinityfree.com failed: No such host is known.  in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('sql306.infinity...', 'if0_43109131', Object(SensitiveParameterValue), 'if0_43109131_el...', 3306, '', 0)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(1525): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(1545): CodeIgniter\Database\BaseConnection->listTables()
+#5 C:\xampp\htdocs\electric_company_dejesus\system\Database\MigrationRunner.php(766): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 C:\xampp\htdocs\electric_company_dejesus\system\Database\MigrationRunner.php(644): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 C:\xampp\htdocs\electric_company_dejesus\system\Commands\Database\MigrateStatus.php(115): CodeIgniter\Database\MigrationRunner->getHistory('')
+#8 C:\xampp\htdocs\electric_company_dejesus\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\MigrateStatus->run(Array)
+#9 C:\xampp\htdocs\electric_company_dejesus\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate:status', Array)
+#10 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\xampp\htdocs\electric_company_dejesus\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for sql306.infinityfree.com failed: No such host is known.  in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(1525): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(1545): CodeIgniter\Database\BaseConnection->listTables()
+#4 C:\xampp\htdocs\electric_company_dejesus\system\Database\MigrationRunner.php(766): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 C:\xampp\htdocs\electric_company_dejesus\system\Database\MigrationRunner.php(644): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 C:\xampp\htdocs\electric_company_dejesus\system\Commands\Database\MigrateStatus.php(115): CodeIgniter\Database\MigrationRunner->getHistory('')
+#7 C:\xampp\htdocs\electric_company_dejesus\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\MigrateStatus->run(Array)
+#8 C:\xampp\htdocs\electric_company_dejesus\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate:status', Array)
+#9 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#10 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#11 C:\xampp\htdocs\electric_company_dejesus\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2026-10-07 14:25:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for sql306.infinityfree.com failed: No such host is known. 
+[Method: CLI, Route: migrate:status]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseConnection.php(1525): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FROM `if0_43109131_electriccompany`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(1545): CodeIgniter\Database\BaseConnection->listTables()
+ 4 SYSTEMPATH\Database\MigrationRunner.php(766): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+ 5 SYSTEMPATH\Database\MigrationRunner.php(644): CodeIgniter\Database\MigrationRunner->ensureTable()
+ 6 SYSTEMPATH\Commands\Database\MigrateStatus.php(115): CodeIgniter\Database\MigrationRunner->getHistory('')
+ 7 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\MigrateStatus->run([])
+ 8 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate:status', [])
+ 9 SYSTEMPATH\Boot.php(388): CodeIgniter\CLI\Console->run()
+10 SYSTEMPATH\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+11 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
