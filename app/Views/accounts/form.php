@@ -95,30 +95,30 @@ $status = $fieldValue('status', 'active');
                     </div>
 
                     <div class="col-md-6">
-                        <label for="phone" class="form-label fw-semibold">Phone</label>
+                        <label for="phone" class="form-label fw-semibold">Phone *</label>
                         <input type="tel" id="phone" name="phone"
                                class="form-control <?= isset($errors['phone']) ? 'is-invalid' : '' ?>"
-                               maxlength="20" value="<?= esc($fieldValue('phone')) ?>">
+                               maxlength="20" value="<?= esc($fieldValue('phone')) ?>" required>
                         <?php if (isset($errors['phone'])): ?>
                             <div class="invalid-feedback"><?= esc($errors['phone']) ?></div>
                         <?php endif; ?>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="email" class="form-label fw-semibold">Email</label>
+                        <label for="email" class="form-label fw-semibold">Email *</label>
                         <input type="email" id="email" name="email"
                                class="form-control <?= isset($errors['email']) ? 'is-invalid' : '' ?>"
-                               maxlength="100" value="<?= esc($fieldValue('email')) ?>">
+                               maxlength="100" value="<?= esc($fieldValue('email')) ?>" required>
                         <?php if (isset($errors['email'])): ?>
                             <div class="invalid-feedback"><?= esc($errors['email']) ?></div>
                         <?php endif; ?>
                     </div>
 
                     <div class="col-md-4">
-                        <label for="meter_number" class="form-label fw-semibold">Meter Number</label>
+                        <label for="meter_number" class="form-label fw-semibold">Meter Number *</label>
                         <input type="text" id="meter_number" name="meter_number"
                                class="form-control <?= isset($errors['meter_number']) ? 'is-invalid' : '' ?>"
-                               maxlength="50" value="<?= esc($fieldValue('meter_number')) ?>">
+                               maxlength="50" value="<?= esc($fieldValue('meter_number')) ?>" required>
                         <?php if (isset($errors['meter_number'])): ?>
                             <div class="invalid-feedback"><?= esc($errors['meter_number']) ?></div>
                         <?php endif; ?>

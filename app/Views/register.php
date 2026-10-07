@@ -226,9 +226,9 @@ isset($validation['zip_code']) ? 'is-invalid' : '' ?>"
                                         <label for="password" class="form-label fw-semibold">Password *</label> 
                                         <input type="password" class="form-control form-control-lg <?= 
 isset($validation['password']) ? 'is-invalid' : '' ?>"  
-                                               id="password" name="password" required
+                                               id="password" name="password" minlength="8" required
                                                aria-describedby="passwordHelp passwordStrengthText">
-                                        <div id="passwordHelp" class="form-text">Password must be at least 8 characters long</div>
+                                        <div id="passwordHelp" class="form-text">Password must be at least 8 characters long.</div>
                                         <div class="progress mt-2" style="height: 8px;" role="progressbar"
                                              aria-label="Password strength" aria-valuemin="0" aria-valuemax="100"
                                              aria-valuenow="0">
@@ -354,8 +354,18 @@ document.addEventListener('DOMContentLoaded', function() {
         } 
     }
 
+    function updatePasswordValidity() {
+        const value = password.value;
+
+        password.setCustomValidity(!value || value.length >= 8
+            ? ''
+            : 'Password must be at least 8 characters long.');
+    }
+
     function updatePasswordStrength() {
         const value = password.value;
+
+        updatePasswordValidity();
 
         if (!value) {
             strengthBar.style.width = '0%';

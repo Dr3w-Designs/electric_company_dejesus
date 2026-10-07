@@ -246,9 +246,9 @@ class Accounts extends BaseController
             'account_number'  => $accountNumberRule,
             'customer_name'   => 'required|min_length[2]|max_length[150]',
             'address'         => 'required|min_length[5]|max_length[2000]',
-            'phone'           => 'permit_empty|max_length[20]',
-            'email'           => 'permit_empty|valid_email|max_length[100]',
-            'meter_number'    => 'permit_empty|max_length[50]',
+            'phone'           => 'required|max_length[20]',
+            'email'           => 'required|valid_email|max_length[100]',
+            'meter_number'    => 'required|max_length[50]',
             'connection_type' => 'required|in_list[residential,commercial,industrial]',
             'status'          => 'required|in_list[active,inactive,suspended]',
         ];
