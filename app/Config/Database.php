@@ -29,7 +29,7 @@ class Database extends Config
         'hostname'     => 'localhost',
         'username'     => 'root', /* change this */
         'password'     => '',
-        'database'     => 'electric_company', /* temporary database for this project */
+        'database'     => 'electriccompany', /* temporary database for this project */
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,

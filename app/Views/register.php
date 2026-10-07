@@ -214,8 +214,17 @@ isset($validation['zip_code']) ? 'is-invalid' : '' ?>"
                                         <label for="password" class="form-label fw-semibold">Password *</label> 
                                         <input type="password" class="form-control form-control-lg <?= 
 isset($validation['password']) ? 'is-invalid' : '' ?>"  
-                                               id="password" name="password" required> 
-                                        <div class="form-text">Password must be at least 8 characters long</div> 
+                                               id="password" name="password" required
+                                               aria-describedby="passwordHelp passwordStrengthText">
+                                        <div id="passwordHelp" class="form-text">Password must be at least 8 characters long</div>
+                                        <div class="progress mt-2" style="height: 8px;" role="progressbar"
+                                             aria-label="Password strength" aria-valuemin="0" aria-valuemax="100"
+                                             aria-valuenow="0">
+                                            <div id="passwordStrengthBar" class="progress-bar" style="width: 0%"></div>
+                                        </div>
+                                        <div id="passwordStrengthText" class="form-text" aria-live="polite">
+                                            Password strength: Not entered
+                                        </div>
                                         <?php if (isset($validation['password'])): ?> 
                                             <div class="invalid-feedback"><?= $validation['password'] ?></div> 
                                         <?php endif; ?> 
@@ -320,14 +329,61 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('registerForm'); 
     const submitBtn = form.querySelector('button[type="submit"]'); 
     const password = document.getElementById('password'); 
-    const confirmPassword = document.getElementById('confirm_password');  // Password matching validation 
-    confirmPassword.addEventListener('input', function() { 
-        if (password.value !== confirmPassword.value) { 
+    const confirmPassword = document.getElementById('confirm_password');
+    const strengthBar = document.getElementById('passwordStrengthBar');
+    const strengthProgress = strengthBar.parentElement;
+    const strengthText = document.getElementById('passwordStrengthText');
+
+    function updatePasswordMatch() {
+        if (confirmPassword.value && password.value !== confirmPassword.value) {
             confirmPassword.setCustomValidity('Passwords do not match'); 
         } else { 
             confirmPassword.setCustomValidity(''); 
         } 
-    }); 
+    }
+
+    function updatePasswordStrength() {
+        const value = password.value;
+
+        if (!value) {
+            strengthBar.style.width = '0%';
+            strengthBar.className = 'progress-bar';
+            strengthProgress.setAttribute('aria-valuenow', '0');
+            strengthText.textContent = 'Password strength: Not entered';
+            updatePasswordMatch();
+            return;
+        }
+
+        let score = 1;
+        if (value.length >= 12) score++;
+        if (/[a-z]/.test(value) && /[A-Z]/.test(value)) score++;
+        if (/\d/.test(value)) score++;
+        if (/[^A-Za-z0-9]/.test(value)) score++;
+
+        let strength;
+        if (value.length < 8) {
+            strength = { label: 'Too short', width: 20, color: 'bg-danger' };
+        } else if (score <= 1) {
+            strength = { label: 'Weak', width: 20, color: 'bg-danger' };
+        } else if (score === 2) {
+            strength = { label: 'Fair', width: 40, color: 'bg-warning' };
+        } else if (score === 3) {
+            strength = { label: 'Good', width: 60, color: 'bg-info' };
+        } else if (score === 4) {
+            strength = { label: 'Strong', width: 80, color: 'bg-primary' };
+        } else {
+            strength = { label: 'Very strong', width: 100, color: 'bg-success' };
+        }
+
+        strengthBar.style.width = strength.width + '%';
+        strengthBar.className = 'progress-bar ' + strength.color;
+        strengthProgress.setAttribute('aria-valuenow', String(strength.width));
+        strengthText.textContent = 'Password strength: ' + strength.label;
+        updatePasswordMatch();
+    }
+
+    password.addEventListener('input', updatePasswordStrength);
+    confirmPassword.addEventListener('input', updatePasswordMatch);
      
     // Phone number formatting 
     const phoneInput = document.getElementById('phone'); 

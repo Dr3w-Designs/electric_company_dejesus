@@ -162,10 +162,21 @@
             </div>
 
             <!-- Action Buttons -->
-            <div class="mt-4 text-center">
-                <a href="<?= base_url('accounts') ?>" class="btn btn-primary btn-lg">
-                    <i class="bi bi-house-door-fill"></i> Back to Dashboard
+            <div class="mt-4 d-flex justify-content-center gap-2">
+                <a href="<?= base_url('accounts') ?>" class="btn btn-secondary">
+                    <i class="bi bi-house-door-fill"></i> Dashboard
                 </a>
+                <a href="<?= base_url('accounts/' . $account['id'] . '/edit') ?>" class="btn btn-warning">
+                    <i class="bi bi-pencil"></i> Edit
+                </a>
+                <form method="POST" action="<?= base_url('accounts/' . $account['id']) ?>"
+                      onsubmit="return confirm('Delete this customer account? This action cannot be undone.');">
+                    <?= csrf_field() ?>
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Delete
+                    </button>
+                </form>
             </div>
         </div>
     </div>

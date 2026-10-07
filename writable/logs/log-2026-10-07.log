@@ -1,0 +1,287 @@
+ERROR - 2026-10-07 05:20:44 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'electric_company' in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'electric_compan...', 3306, '', 0)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\electric_company_dejesus\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\electric_company_dejesus\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\electric_company_dejesus\app\Models\User.php(87): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\electric_company_dejesus\app\Controllers\Auth.php(31): App\Models\User->findByEmail('ajdejesus@fit.e...')
+#8 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(933): App\Controllers\Auth->login()
+#9 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\electric_company_dejesus\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'electric_company' in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\electric_company_dejesus\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\electric_company_dejesus\app\Models\User.php(87): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\electric_company_dejesus\app\Controllers\Auth.php(31): App\Models\User->findByEmail('ajdejesus@fit.e...')
+#7 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(933): App\Controllers\Auth->login()
+#8 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#9 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\electric_company_dejesus\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-10-07 05:20:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'electric_company'
+[Method: POST, Route: login]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_accounts`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Models\User.php(87): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Controllers\Auth.php(31): App\Models\User->findByEmail('ajdejesus@fit.edu.ph')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->login()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-10-07 05:20:49 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'electric_company' in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'electric_compan...', 3306, '', 0)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\electric_company_dejesus\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\electric_company_dejesus\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\electric_company_dejesus\app\Models\User.php(87): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\electric_company_dejesus\app\Controllers\Auth.php(31): App\Models\User->findByEmail('ajdejesus@fit.e...')
+#8 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(933): App\Controllers\Auth->login()
+#9 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\electric_company_dejesus\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'electric_company' in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\electric_company_dejesus\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 C:\xampp\htdocs\electric_company_dejesus\app\Models\User.php(87): CodeIgniter\BaseModel->first()
+#6 C:\xampp\htdocs\electric_company_dejesus\app\Controllers\Auth.php(31): App\Models\User->findByEmail('ajdejesus@fit.e...')
+#7 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(933): App\Controllers\Auth->login()
+#8 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#9 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\electric_company_dejesus\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-10-07 05:20:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'electric_company'
+[Method: POST, Route: login]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user_accounts`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Models\User.php(87): CodeIgniter\BaseModel->first()
+ 6 APPPATH\Controllers\Auth.php(31): App\Models\User->findByEmail('ajdejesus@fit.edu.ph')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Auth->login()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-10-07 05:24:54 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'electric_company' in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'electric_compan...', 3306, '', 0)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\electric_company_dejesus\system\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\electric_company_dejesus\system\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('TinyPotpot@gmai...', 'email', Array, NULL, 'email')
+#6 C:\xampp\htdocs\electric_company_dejesus\system\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'email', 'TinyPotpot@gmai...', Array, Array, 'email')
+#7 C:\xampp\htdocs\electric_company_dejesus\app\Controllers\Register.php(47): CodeIgniter\Validation\Validation->run()
+#8 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(933): App\Controllers\Register->create()
+#9 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Register))
+#10 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\electric_company_dejesus\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'electric_company' in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\electric_company_dejesus\system\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('TinyPotpot@gmai...', 'email', Array, NULL, 'email')
+#5 C:\xampp\htdocs\electric_company_dejesus\system\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'email', 'TinyPotpot@gmai...', Array, Array, 'email')
+#6 C:\xampp\htdocs\electric_company_dejesus\app\Controllers\Register.php(47): CodeIgniter\Validation\Validation->run()
+#7 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(933): App\Controllers\Register->create()
+#8 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Register))
+#9 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\electric_company_dejesus\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-10-07 05:24:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'electric_company'
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `user_accounts`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('TinyPotpot@gmail.com', 'email', [...], null, 'email')
+ 5 SYSTEMPATH\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'email', 'TinyPotpot@gmail.com', [...], [...], 'email')
+ 6 APPPATH\Controllers\Register.php(47): CodeIgniter\Validation\Validation->run()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Register->create()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Register))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2026-10-07 05:29:05 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'electric_company' in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'electric_compan...', 3306, '', 0)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\electric_company_dejesus\system\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\electric_company_dejesus\system\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('TinyPotpot@gmai...', 'email', Array, NULL, 'email')
+#6 C:\xampp\htdocs\electric_company_dejesus\system\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'email', 'TinyPotpot@gmai...', Array, Array, 'email')
+#7 C:\xampp\htdocs\electric_company_dejesus\app\Controllers\Register.php(47): CodeIgniter\Validation\Validation->run()
+#8 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(933): App\Controllers\Register->create()
+#9 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Register))
+#10 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\electric_company_dejesus\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'electric_company' in C:\xampp\htdocs\electric_company_dejesus\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\electric_company_dejesus\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\electric_company_dejesus\system\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\electric_company_dejesus\system\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('TinyPotpot@gmai...', 'email', Array, NULL, 'email')
+#5 C:\xampp\htdocs\electric_company_dejesus\system\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'email', 'TinyPotpot@gmai...', Array, Array, 'email')
+#6 C:\xampp\htdocs\electric_company_dejesus\app\Controllers\Register.php(47): CodeIgniter\Validation\Validation->run()
+#7 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(933): App\Controllers\Register->create()
+#8 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Register))
+#9 C:\xampp\htdocs\electric_company_dejesus\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\electric_company_dejesus\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\electric_company_dejesus\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2026-10-07 05:29:05 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'electric_company'
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `user_accounts`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('TinyPotpot@gmail.com', 'email', [...], null, 'email')
+ 5 SYSTEMPATH\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'email', 'TinyPotpot@gmail.com', [...], [...], 'email')
+ 6 APPPATH\Controllers\Register.php(47): CodeIgniter\Validation\Validation->run()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Register->create()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Register))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-10-07 07:41:14 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1027.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1027): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(12): CodeIgniter\Router\RouteCollection->match([...], 'contact', 'Contact::index')
+ 3 SYSTEMPATH\Router\RouteCollection.php(340): require('C:\\xampp\\htdocs\\electric_company_dejesus\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\Test\bootstrap.php(91): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(352): include_once('C:\\xampp\\htdocs\\electric_company_dejesus\\system\\Test\\bootstrap.php')
+ 6 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(122): PHPUnit\TextUI\Application->loadBootstrapScript('C:\\xampp\\htdocs\\electric_company_dejesus\\system/Test/bootstrap.php')
+ 7 VENDORPATH\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run([...])
+ 8 VENDORPATH\bin\phpunit(122): include('C:\\xampp\\htdocs\\electric_company_dejesus\\vendor\\phpunit\\phpunit\\phpunit')
+WARNING - 2026-10-07 07:41:14 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1027.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1027): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(12): CodeIgniter\Router\RouteCollection->match([...], 'contact', 'Contact::index')
+ 3 SYSTEMPATH\Router\RouteCollection.php(340): require('C:\\xampp\\htdocs\\electric_company_dejesus\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\Test\bootstrap.php(91): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(352): include_once('C:\\xampp\\htdocs\\electric_company_dejesus\\system\\Test\\bootstrap.php')
+ 6 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(122): PHPUnit\TextUI\Application->loadBootstrapScript('C:\\xampp\\htdocs\\electric_company_dejesus\\system/Test/bootstrap.php')
+ 7 VENDORPATH\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run([...])
+ 8 VENDORPATH\bin\phpunit(122): include('C:\\xampp\\htdocs\\electric_company_dejesus\\vendor\\phpunit\\phpunit\\phpunit')
+WARNING - 2026-10-07 07:42:01 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1027.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1027): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(12): CodeIgniter\Router\RouteCollection->match([...], 'contact', 'Contact::index')
+ 3 SYSTEMPATH\Router\RouteCollection.php(340): require('C:\\xampp\\htdocs\\electric_company_dejesus\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\Test\bootstrap.php(91): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(352): include_once('C:\\xampp\\htdocs\\electric_company_dejesus\\system\\Test\\bootstrap.php')
+ 6 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(122): PHPUnit\TextUI\Application->loadBootstrapScript('C:\\xampp\\htdocs\\electric_company_dejesus\\system/Test/bootstrap.php')
+ 7 VENDORPATH\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run([...])
+ 8 VENDORPATH\bin\phpunit(122): include('C:\\xampp\\htdocs\\electric_company_dejesus\\vendor\\phpunit\\phpunit\\phpunit')
+WARNING - 2026-10-07 07:42:01 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1027.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1027): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(12): CodeIgniter\Router\RouteCollection->match([...], 'contact', 'Contact::index')
+ 3 SYSTEMPATH\Router\RouteCollection.php(340): require('C:\\xampp\\htdocs\\electric_company_dejesus\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\Test\bootstrap.php(91): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(352): include_once('C:\\xampp\\htdocs\\electric_company_dejesus\\system\\Test\\bootstrap.php')
+ 6 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(122): PHPUnit\TextUI\Application->loadBootstrapScript('C:\\xampp\\htdocs\\electric_company_dejesus\\system/Test/bootstrap.php')
+ 7 VENDORPATH\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run([...])
+ 8 VENDORPATH\bin\phpunit(122): include('C:\\xampp\\htdocs\\electric_company_dejesus\\vendor\\phpunit\\phpunit\\phpunit')
+CRITICAL - 2026-10-07 06:01:13 --> ErrorException: session_start(): Failed to decode session object. Session has been destroyed
+[Method: GET, Route: accounts/new]
+in SYSTEMPATH\Session\Session.php on line 920.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'session_start(): Failed to decode session object. Session has been destroyed', 'C:\\xampp\\htdocs\\electric_company_dejesus\\system\\Session\\Session.php', 920)
+ 2 SYSTEMPATH\Session\Session.php(920): session_start()
+ 3 SYSTEMPATH\Session\Session.php(242): CodeIgniter\Session\Session->startSession()
+ 4 SYSTEMPATH\Config\Services.php(710): CodeIgniter\Session\Session->start()
+ 5 SYSTEMPATH\Config\BaseService.php(312): CodeIgniter\Config\Services::session(Object(Config\Session), false)
+ 6 SYSTEMPATH\Config\BaseService.php(251): CodeIgniter\Config\BaseService::__callStatic('session', [...])
+ 7 SYSTEMPATH\Config\Services.php(668): CodeIgniter\Config\BaseService::getSharedInstance('session', null)
+ 8 SYSTEMPATH\Config\BaseService.php(321): CodeIgniter\Config\Services::session()
+ 9 SYSTEMPATH\Config\BaseService.php(202): CodeIgniter\Config\BaseService::__callStatic('session', [])
+10 SYSTEMPATH\Common.php(998): CodeIgniter\Config\BaseService::get('session')
+11 SYSTEMPATH\Common.php(971): service('session')
+12 APPPATH\Controllers\Accounts.php(69): session()
+13 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Accounts->newAccount()
+14 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Accounts))
+15 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+16 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+17 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+18 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+WARNING - 2026-10-07 08:02:03 --> [DEPRECATED] Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET". in SYSTEMPATH\Router\RouteCollection.php on line 1027.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1027): trigger_error('Passing lowercase HTTP method "get" is deprecated. Use uppercase HTTP method like "GET".', 16384)
+ 2 APPPATH\Config\Routes.php(12): CodeIgniter\Router\RouteCollection->match([...], 'contact', 'Contact::index')
+ 3 SYSTEMPATH\Router\RouteCollection.php(340): require('C:\\xampp\\htdocs\\electric_company_dejesus\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\Test\bootstrap.php(91): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(352): include_once('C:\\xampp\\htdocs\\electric_company_dejesus\\system\\Test\\bootstrap.php')
+ 6 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(122): PHPUnit\TextUI\Application->loadBootstrapScript('C:\\xampp\\htdocs\\electric_company_dejesus\\system/Test/bootstrap.php')
+ 7 VENDORPATH\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run([...])
+ 8 VENDORPATH\bin\phpunit(122): include('C:\\xampp\\htdocs\\electric_company_dejesus\\vendor\\phpunit\\phpunit\\phpunit')
+WARNING - 2026-10-07 08:02:03 --> [DEPRECATED] Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST". in SYSTEMPATH\Router\RouteCollection.php on line 1027.
+ 1 SYSTEMPATH\Router\RouteCollection.php(1027): trigger_error('Passing lowercase HTTP method "post" is deprecated. Use uppercase HTTP method like "POST".', 16384)
+ 2 APPPATH\Config\Routes.php(12): CodeIgniter\Router\RouteCollection->match([...], 'contact', 'Contact::index')
+ 3 SYSTEMPATH\Router\RouteCollection.php(340): require('C:\\xampp\\htdocs\\electric_company_dejesus\\app\\Config\\Routes.php')
+ 4 SYSTEMPATH\Test\bootstrap.php(91): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 5 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(352): include_once('C:\\xampp\\htdocs\\electric_company_dejesus\\system\\Test\\bootstrap.php')
+ 6 VENDORPATH\phpunit\phpunit\src\TextUI\Application.php(122): PHPUnit\TextUI\Application->loadBootstrapScript('C:\\xampp\\htdocs\\electric_company_dejesus\\system/Test/bootstrap.php')
+ 7 VENDORPATH\phpunit\phpunit\phpunit(104): PHPUnit\TextUI\Application->run([...])
+ 8 VENDORPATH\bin\phpunit(122): include('C:\\xampp\\htdocs\\electric_company_dejesus\\vendor\\phpunit\\phpunit\\phpunit')

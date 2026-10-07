@@ -77,7 +77,10 @@
                 <p class="text-muted">Customer Account Management System</p>
             </div>
 
-            <div class="d-flex justify-content-end mb-4">
+            <div class="d-flex justify-content-end gap-2 mb-4">
+                <a href="<?= base_url('accounts/new') ?>" class="btn btn-success">
+                    <i class="bi bi-plus-circle"></i> Add Account
+                </a>
                 <form method="POST" action="<?= base_url('logout') ?>">
                     <?= csrf_field() ?>
                     <button type="submit" class="btn btn-outline-danger">
@@ -85,6 +88,20 @@
                     </button>
                 </form>
             </div>
+
+            <?php if ($success = session()->getFlashdata('success')): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="bi bi-check-circle-fill me-2"></i><?= esc($success) ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($error = session()->getFlashdata('error')): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i><?= esc($error) ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
 
             <!-- Statistics Cards -->
             <div class="row mb-4">
@@ -122,7 +139,7 @@
                             <input type="text" class="form-control" name="search" placeholder="Search by name, account, email, phone..." value="<?= esc($search_keyword ?? '') ?>">
                         </div>
                         <div class="col-md-3">
-                            <select class="form-select" name="status">
+                            <select class="form-select" name="status" onchange="this.form.submit()">
                                 <option value="">All Status</option>
                                 <option value="active" <?= ($filter_status ?? '') == 'active' ? 'selected' : '' ?>>Active</option>
                                 <option value="inactive" <?= ($filter_status ?? '') == 'inactive' ? 'selected' : '' ?>>Inactive</option>
@@ -130,7 +147,7 @@
                             </select>
                         </div>
                         <div class="col-md-3">
-                            <select class="form-select" name="type">
+                            <select class="form-select" name="type" onchange="this.form.submit()">
                                 <option value="">All Types</option>
                                 <option value="residential" <?= ($filter_type ?? '') == 'residential' ? 'selected' : '' ?>>Residential</option>
                                 <option value="commercial" <?= ($filter_type ?? '') == 'commercial' ? 'selected' : '' ?>>Commercial</option>
@@ -182,10 +199,22 @@
                                         ?>
                                         <span class="badge <?= $badgeClass ?>"><?= ucfirst(esc($account['status'])) ?></span>
                                     </td>
-                                    <td>
+                                    <td class="text-nowrap">
                                         <a href="<?= base_url('accounts/' . $account['id']) ?>" class="btn btn-sm btn-outline-primary">
                                             <i class="bi bi-eye"></i> View
                                         </a>
+                                        <a href="<?= base_url('accounts/' . $account['id'] . '/edit') ?>" class="btn btn-sm btn-outline-warning">
+                                            <i class="bi bi-pencil"></i> Edit
+                                        </a>
+                                        <form method="POST" action="<?= base_url('accounts/' . $account['id']) ?>"
+                                              class="d-inline"
+                                              onsubmit="return confirm('Delete this customer account? This action cannot be undone.');">
+                                            <?= csrf_field() ?>
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                <i class="bi bi-trash"></i> Delete
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

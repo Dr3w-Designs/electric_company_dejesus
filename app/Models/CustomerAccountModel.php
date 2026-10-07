@@ -45,6 +45,32 @@ class CustomerAccountModel extends Model
             ->paginate($perPage);
     }
 
+    public function getFilteredAccounts(
+        ?string $keyword = null,
+        ?string $status = null,
+        ?string $type = null,
+        int $perPage = 10
+    ): array {
+        if ($keyword) {
+            $this->groupStart()
+                ->like('account_number', $keyword)
+                ->orLike('customer_name', $keyword)
+                ->orLike('email', $keyword)
+                ->orLike('phone', $keyword)
+                ->groupEnd();
+        }
+
+        if ($status) {
+            $this->where('status', $status);
+        }
+
+        if ($type) {
+            $this->where('connection_type', $type);
+        }
+
+        return $this->orderBy('created_at', 'DESC')->paginate($perPage);
+    }
+
     public function getAccountsByStatus(string $status, int $perPage = 10): array
     {
         return $this->where('status', $status)
